@@ -1,0 +1,3 @@
+---
+# vars file for docker-ce-centos
+docker_centos_nonroot: "{{ (ansible_env.HOME == '/root') | ternary('no', 'yes') }}"

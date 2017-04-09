@@ -1,0 +1,15 @@
+---
+- hosts: default
+  roles:
+  - role: ansible-docker-ce-centos
+    docker_centos_started: yes
+    docker_centos_version: 17.03.1.ce-1.el7.centos
+    docker_centos_users:
+    - vagrant
+  tasks:
+  - name: Check docker version
+    command: docker --version
+    register: result
+    changed_when: false
+  - debug:
+      var: result.stdout
