@@ -3,3 +3,4 @@
 docker_centos_users: []
 docker_centos_version: "latest"
 docker_centos_started: no
+docker_centos_enabled: no
