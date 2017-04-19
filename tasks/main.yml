@@ -33,6 +33,12 @@
     state: started
   become: "{{docker_centos_nonroot}}"
   when: docker_centos_started
+- name: enable docker daemon
+  service:
+    name: docker
+    enabled: yes
+  become: "{{docker_centos_nonroot}}"
+  when: docker_centos_enabled
 - name: Add users to the docker group
   user:
     name: "{{item}}"
