@@ -4,26 +4,24 @@ ansible role to install Docker CE on CentOS
 
 https://galaxy.ansible.com/suzuki-shunsuke/docker-ce-centos/
 
-Requirements
-------------
+## Requirements
 
 Nothing.
 
-Role Variables
---------------
+## Role Variables
 
-* docker_centos_version: docker version. The default is latest.
-* docker_centos_started: whether docker daemon is started. The default is "no".
-* docker_centos_enabled: whether docker daemon is enabled. The default is "no".
-* docker_centos_users: users added to docker group. The default is "[]".
+name | required | default | example | description
+--- | --- | --- | --- | ---
+docker_centos_version | no | latest | 17.03.1.ce-1.el7.centos | docker version
+docker_centos_started | no | do nothing | | whether docker daemon is started
+docker_centos_enabled | no | do nothing | | whether docker daemon is enabled
+docker_centos_users | no | [] | ["vagrant"] | users added to docker group
 
-Dependencies
-------------
+## Dependencies
 
 Nothing.
 
-Example Playbook
-----------------
+## Example Playbook
 
 ```yaml
 - hosts: servers
@@ -34,9 +32,9 @@ Example Playbook
     docker_centos_enabled: yes
     docker_centos_users:
     - vagrant
+    become: yes
 ```
 
-License
--------
+## License
 
-MIT
+[MIT](LICENSE)

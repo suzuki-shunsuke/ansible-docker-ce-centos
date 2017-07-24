@@ -11,38 +11,31 @@
   - container-selinux
   - docker-selinux
   - docker-engine
-  become: "{{docker_centos_nonroot}}"
 - name: Install yum-utils
   yum:
     name: yum-utils
     update_cache: yes
-  become: "{{docker_centos_nonroot}}"
 - name: Add repository
   get_url:
     url: https://download.docker.com/linux/centos/docker-ce.repo
     dest: /etc/yum.repos.d/docker-ce.repo
-  become: "{{docker_centos_nonroot}}"
 - name: Install docker
   yum:
     name: docker-ce{{ (docker_centos_version == 'latest') | ternary('', '-{}'.format(docker_centos_version))}}
     update_cache: yes
-  become: "{{docker_centos_nonroot}}"
 - name: start docker daemon
   service:
     name: docker
     state: started
-  become: "{{docker_centos_nonroot}}"
   when: docker_centos_started
 - name: enable docker daemon
   service:
     name: docker
     enabled: yes
-  become: "{{docker_centos_nonroot}}"
   when: docker_centos_enabled
 - name: Add users to the docker group
   user:
     name: "{{item}}"
     groups: docker
     append: yes
-  become: "{{docker_centos_nonroot}}"
   with_items: "{{docker_centos_users}}"
