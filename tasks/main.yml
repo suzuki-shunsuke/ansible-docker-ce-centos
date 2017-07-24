@@ -8,7 +8,6 @@
   with_items:
   - docker
   - docker-common
-  - container-selinux
   - docker-selinux
   - docker-engine
 - name: Install yum-utils
