@@ -1,27 +1,14 @@
 ---
 # tasks file for docker-ce-centos
 # https://docs.docker.com/engine/installation/linux/centos/
-- name: Uninstall old versions
-  yum:
-    name: "{{item}}"
-    state: absent
-  with_items:
-  - docker
-  - docker-common
-  - docker-selinux
-  - docker-engine
-- name: Install yum-utils
-  yum:
-    name: yum-utils
-    update_cache: yes
-- name: Add repository
-  get_url:
-    url: https://download.docker.com/linux/centos/docker-ce.repo
-    dest: /etc/yum.repos.d/docker-ce.repo
-- name: Install docker
-  yum:
-    name: docker-ce{{ (docker_centos_version == 'latest') | ternary('', '-{}'.format(docker_centos_version))}}
-    update_cache: yes
+- name: check whether docker-ce has already installed
+  command: rpm -q docker-ce
+  register: result
+  changed_when: no
+  failed_when: no
+- include: install_docker.yml
+  when: result.rc
+  static: no
 - name: start docker daemon
   service:
     name: docker
@@ -32,7 +19,7 @@
     name: docker
     enabled: yes
   when: docker_centos_enabled
-- name: Add users to the docker group
+- name: add users to the docker group
   user:
     name: "{{item}}"
     groups: docker

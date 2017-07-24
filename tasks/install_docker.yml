@@ -1,0 +1,21 @@
+- name: uninstall old versions
+  yum:
+    name: "{{item}}"
+    state: absent
+  with_items:
+  - docker
+  - docker-common
+  - docker-selinux
+  - docker-engine
+- name: install yum-utils
+  yum:
+    name: yum-utils
+    update_cache: yes
+- name: add repository
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+- name: install docker
+  yum:
+    name: docker-ce{{ (docker_centos_version == 'latest') | ternary('', '-{}'.format(docker_centos_version))}}
+    update_cache: yes
