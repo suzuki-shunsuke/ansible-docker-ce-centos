@@ -9,16 +9,16 @@
 - include: install_docker.yml
   when: result.rc
   static: no
-- name: start docker daemon
+- name: change the status of the docker daemon
   service:
     name: docker
-    state: started
-  when: docker_centos_started
-- name: enable docker daemon
+    state: "{{docker_centos_state}}"
+  when: docker_centos_state is not undefined
+- name: make docker daemon enabled or disabled
   service:
     name: docker
-    enabled: yes
-  when: docker_centos_enabled
+    enabled: "{{docker_centos_enabled}}"
+  when: docker_centos_enabled is not undefined
 - name: add users to the docker group
   user:
     name: "{{item}}"
