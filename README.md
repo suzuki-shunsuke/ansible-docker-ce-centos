@@ -1,5 +1,9 @@
 # ansible-docker-ce-centos
 
+[![GitHub last commit](https://img.shields.io/github/last-commit/suzuki-shunsuke/ansible-docker-ce-centos.svg)](https://github.com/suzuki-shunsuke/ansible-docker-ce-centos)
+[![GitHub tag](https://img.shields.io/github/tag/suzuki-shunsuke/ansible-docker-ce-centos.svg)](https://github.com/suzuki-shunsuke/ansible-docker-ce-centos/releases)
+[![License](http://img.shields.io/badge/license-mit-blue.svg?style=flat-square)](https://raw.githubusercontent.com/suzuki-shunsuke/ansible-docker-ce-centos/master/LICENSE)
+
 ansible role to install Docker CE on CentOS
 
 https://galaxy.ansible.com/suzuki-shunsuke/docker-ce-centos/

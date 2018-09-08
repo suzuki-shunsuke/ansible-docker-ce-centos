@@ -6,7 +6,7 @@
   register: result
   changed_when: no
   failed_when: no
-- include: install_docker.yml
+- import_tasks: install_docker.yml
   when: result.rc
   static: no
 - name: change the status of the docker daemon

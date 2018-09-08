@@ -2,7 +2,7 @@ galaxy_info:
   author: Suzuki Shunsuke
   description: Install Docker CE on CentOS
   license: MIT
-  min_ansible_version: 1.2
+  min_ansible_version: 2.4
   github_branch: master
 
   platforms:
