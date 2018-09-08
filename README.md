@@ -35,7 +35,7 @@ Nothing.
 ```yaml
 - hosts: servers
   roles:
-  - role: suzuki-shunsuke.docker-ce-centos
+  - role: suzuki-shunsuke.docker_ce_centos
     docker_centos_state: started
     docker_centos_enabled: yes
     docker_centos_users:

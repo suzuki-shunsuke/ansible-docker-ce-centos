@@ -1,5 +1,5 @@
 ---
-# tasks file for docker-ce-centos
+# tasks file for docker_ce_centos
 # https://docs.docker.com/engine/installation/linux/centos/
 - name: check whether docker-ce has already installed
   command: rpm -q docker-ce
