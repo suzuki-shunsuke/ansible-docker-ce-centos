@@ -6,11 +6,16 @@
 
 ansible role to install Docker CE on CentOS
 
-https://galaxy.ansible.com/suzuki-shunsuke/docker-ce-centos/
+https://galaxy.ansible.com/suzuki-shunsuke/docker_ce_centos/
+
+## Note
+
+**Unfortunately, the role name has changed from `docker-ce-centos` to `docker_ce_centos`!**
+**This is breaking change of Ansible Galaxy.**
 
 ## Requirements
 
-Nothing.
+ansible >= 2.4
 
 ## Role Variables
 
