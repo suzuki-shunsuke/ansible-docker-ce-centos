@@ -1,5 +1,6 @@
 galaxy_info:
   author: Suzuki Shunsuke
+  role_name: docker-ce-centos
   description: Install Docker CE on CentOS
   license: MIT
   min_ansible_version: 2.4
