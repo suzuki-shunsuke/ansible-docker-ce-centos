@@ -9,16 +9,19 @@
 - import_tasks: install_docker.yml
   when: result.rc
   static: false
+- import_tasks: configure_daemon.yml
+  when: docker_centos_daemon_config is defined
+  static: false
 - name: change the status of the docker daemon
   service:
     name: docker
     state: "{{ docker_centos_state }}"
-  when: docker_centos_state is not undefined
+  when: docker_centos_state is defined
 - name: make docker daemon enabled or disabled
   service:
     name: docker
     enabled: "{{ docker_centos_enabled }}"
-  when: docker_centos_enabled is not undefined
+  when: docker_centos_enabled is defined
 - name: add users to the docker group
   user:
     name: "{{ item }}"

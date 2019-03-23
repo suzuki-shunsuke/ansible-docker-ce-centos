@@ -25,6 +25,7 @@ docker_centos_version | no | latest | | docker version
 docker_centos_state | no | undefined (do nothing) | "started" or "stopped" or "restarted" or "reloaded" | docker daemon state
 docker_centos_enabled | no | undefined(do nothing) | | whether docker daemon is enabled
 docker_centos_users | no | [] | ["vagrant"] | users added to docker group
+docker_centos_daemon_config | no | undefined(do nothing) | | docker daemon configuration /etc/docker/daemon.json
 
 ## Dependencies
 
