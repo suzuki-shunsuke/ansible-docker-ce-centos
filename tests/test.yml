@@ -3,10 +3,10 @@
   roles:
     - role: ansible-docker-ce-centos
       docker_centos_state: started
-      docker_centos_enabled: yes
+      docker_centos_enabled: true
       docker_centos_users:
         - vagrant
-      become: yes
+      become: true
   tasks:
     - name: Check docker version
       command: docker --version
