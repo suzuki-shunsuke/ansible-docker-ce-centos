@@ -1,16 +1,16 @@
 ---
 - hosts: default
   roles:
-  - role: ansible-docker-ce-centos
-    docker_centos_state: started
-    docker_centos_enabled: yes
-    docker_centos_users:
-    - vagrant
-    become: yes
+    - role: ansible-docker-ce-centos
+      docker_centos_state: started
+      docker_centos_enabled: yes
+      docker_centos_users:
+        - vagrant
+      become: yes
   tasks:
-  - name: Check docker version
-    command: docker --version
-    register: result
-    changed_when: false
-  - debug:
-      var: result.stdout
+    - name: Check docker version
+      command: docker --version
+      register: result
+      changed_when: false
+    - debug:
+        var: result.stdout

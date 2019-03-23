@@ -12,16 +12,16 @@
 - name: change the status of the docker daemon
   service:
     name: docker
-    state: "{{docker_centos_state}}"
+    state: "{{ docker_centos_state }}"
   when: docker_centos_state is not undefined
 - name: make docker daemon enabled or disabled
   service:
     name: docker
-    enabled: "{{docker_centos_enabled}}"
+    enabled: "{{ docker_centos_enabled }}"
   when: docker_centos_enabled is not undefined
 - name: add users to the docker group
   user:
-    name: "{{item}}"
+    name: "{{ item }}"
     groups: docker
     append: yes
-  with_items: "{{docker_centos_users}}"
+  with_items: "{{ docker_centos_users }}"
