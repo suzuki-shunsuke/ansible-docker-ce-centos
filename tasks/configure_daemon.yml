@@ -1,0 +1,11 @@
+---
+- name: mkdir /etc/docker
+  file:
+    dest: /etc/docker
+    state: directory
+- name: configure docker daemon
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+  notify:
+    - reload docker daemon
