@@ -4,11 +4,11 @@
 - name: check whether docker-ce has already installed
   command: rpm -q docker-ce
   register: result
-  changed_when: no
-  failed_when: no
+  changed_when: false
+  failed_when: false
 - import_tasks: install_docker.yml
   when: result.rc
-  static: no
+  static: false
 - name: change the status of the docker daemon
   service:
     name: docker
@@ -23,5 +23,5 @@
   user:
     name: "{{ item }}"
     groups: docker
-    append: yes
+    append: true
   with_items: "{{ docker_centos_users }}"
