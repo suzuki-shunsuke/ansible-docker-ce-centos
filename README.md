@@ -15,7 +15,7 @@ https://galaxy.ansible.com/suzuki-shunsuke/docker_ce_centos/
 
 ## Requirements
 
-ansible >= 2.4
+ansible >= 2.6
 
 ## Role Variables
 
@@ -35,12 +35,12 @@ Nothing.
 ```yaml
 - hosts: servers
   roles:
-  - role: suzuki-shunsuke.docker_ce_centos
-    docker_centos_state: started
-    docker_centos_enabled: yes
-    docker_centos_users:
-    - vagrant
-    become: yes
+    - role: suzuki-shunsuke.docker_ce_centos
+      docker_centos_state: started
+      docker_centos_enabled: true
+      docker_centos_users:
+        - vagrant
+      become: true
 ```
 
 ## License
